@@ -40,5 +40,7 @@ public class TestGaulois {
 			asterix.frapper(minus);
 			minus.frapper(asterix);
 		}
+		
+		conteur.conterHistoire(bataille);
 	}
 }

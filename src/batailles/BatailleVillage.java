@@ -1,6 +1,6 @@
 package batailles;
 
-public class BatailleVillage implements Bataille {
+public class BatailleVillage implements bataille {
     @Override
     public void decrireContexte() {
         System.out.println("Dans un petit village gaulois, une dispute éclate...");
