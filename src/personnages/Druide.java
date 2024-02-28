@@ -1,9 +1,12 @@
 package personnages;
 
+import java.util.Random;
+
 public class Druide extends Gaulois {
 
 	private int quantitePotion;
 	private int forcePotion;
+	private Random random = new Random();
 	
 	public Druide(String nom, int force) {
 		super(nom, force);
@@ -11,7 +14,7 @@ public class Druide extends Gaulois {
 	
 	public void fabriquerPotion(int quantite) {
 		quantitePotion = quantite;
-		forcePotion = 2 + (int)(Math.random() * 3);
+		forcePotion = 2 + (int)(random.nextInt(4));
 		this.parler("J'ai concocté " + quantite + " doses de potion magique. Elle a une force de " + forcePotion );
 	}
 	
@@ -31,9 +34,4 @@ public class Druide extends Gaulois {
 			this.parler("Non, Obélix Non !... Et tu le sais très bien !");
 		}
 	}
-		
-	
-	
-	
-
 }

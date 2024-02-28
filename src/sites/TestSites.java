@@ -6,15 +6,12 @@ import personnages.Soldat;
 
 public class TestSites {
 	public static void main(String[] args) {
-		// Question b
 		Gaulois vercingetorix = new Gaulois("Versingétorix",5);
 		Soldat minus = new Soldat("Minus", Grade.CENTURION,2);
 		
 		Village village = new Village(vercingetorix);
 		Camp camp = new Camp(minus);
 		
-		
-		// Question d
 		Gaulois agecanonix = new Gaulois("Agecanonix",1);
 		Gaulois assurancetourix = new Gaulois("Assurancetourix",2);
 		Gaulois asterix = new Gaulois("Astérix",5);
@@ -38,12 +35,10 @@ public class TestSites {
 		village.ajouterVillageois(prolix);
 		
 		
-		// Question e
 		village.afficherVillageois();
 		camp.afficherCamp();
 		
 		
-		// Question f
 		Gaulois abraracourcix = new Gaulois("Abraracourcix",5);
 		village.changerChef(abraracourcix);
 		

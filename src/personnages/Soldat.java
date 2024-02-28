@@ -1,8 +1,8 @@
 package personnages;
 
 public class Soldat extends Romain {
-	public Grade grade;
-	public Armure[] armure = new Armure[3];
+	private Grade grade;
+	private Armure[] armure = new Armure[3];
 	
 	@Override
 	protected String donnerAuteur() {
@@ -15,17 +15,19 @@ public class Soldat extends Romain {
 	    
 	    for (int i = 0; i< armure.length;i++) {
 	        if (armure[i] != null) {
-	            forceAbsorbee = forceAbsorbee + armure[i].getResistance();
-	            forceCoup = forceCoup - forceAbsorbee;
+	            forceAbsorbee += armure[i].getResistance();
+	            forceCoup -= forceAbsorbee;
 	            if (forceCoup > 0) {
 	            	System.out.println("Le " + armure[i].getNom() + " absorbe " + armure[i].getResistance() + " du coup");
 	            	armure[i] = null;
+	            } else {
+	            	forceCoup = 0;
 	            }
 	        }
 	    }
 	    
 	    if (forceCoup > 0) {
-	        force = force - forceCoup;
+	        force -= forceCoup;
 	        if (force > 0) {
 	            parler("Aïe");
 	        } else {
@@ -35,7 +37,7 @@ public class Soldat extends Romain {
 	    } 
 	}
 	
-	public Soldat(String nom,  Grade grade, int force) {
+	public Soldat(String nom, Grade grade, int force) {
 		super(nom, force);
 		this.grade = grade;
 	}

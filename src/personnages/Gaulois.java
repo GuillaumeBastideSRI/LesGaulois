@@ -2,11 +2,11 @@ package personnages;
 
 public class Gaulois extends Personnage{
 	private double puissancePotion = 1;
-	private int forceOrigine;
+	private int forceBase;
 	
 	public Gaulois(String nom, int force) {
 		super(nom, force);
-		forceOrigine = force;
+		forceBase = force;
 	}
 	
 	@Override
@@ -15,20 +15,18 @@ public class Gaulois extends Personnage{
 	}
 	
 	@Override
-	public void frapper(Personnage adversaire) {
-		if (force>0 && !estMort(adversaire)) {
-			System.out.println("Le " + donnerAuteur() + " " + nom + " donne un grand coup de force " + force + " au " + adversaire.donnerAuteur() + " " + adversaire.getNom() );
-			adversaire.recevoirCoup(force);
+	public int calculForceFrappe() {
+		int forceFrappe = super.calculForceFrappe();
 			if(puissancePotion > 1) {
+				forceFrappe = forceBase * (int) puissancePotion;
 				puissancePotion = puissancePotion - 0.5;
-				this.force = forceOrigine * (int)puissancePotion;
 			}
-		}
+			return forceFrappe;
 	}
 	
 	public void recevoirPotion(double potion) {
 		this.puissancePotion = potion;
-		this.force = forceOrigine * (int)puissancePotion;	
+		this.force = forceBase * (int)puissancePotion;	
 	}
 	
 	

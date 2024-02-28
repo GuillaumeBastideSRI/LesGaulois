@@ -23,12 +23,16 @@ abstract class Personnage {
 	public void frapper(Personnage adversaire) {
 		if (force>0 && !estMort(adversaire)) {
 			System.out.println("Le " + donnerAuteur() + " " + nom + " donne un grand coup de force " + force + " au " + adversaire.donnerAuteur() + " " + adversaire.getNom() );
-			adversaire.recevoirCoup(force);
+			adversaire.recevoirCoup(calculForceFrappe());
 		}
 	}
 	
-	public void recevoirCoup(int forceCoup) {
-		force = force - forceCoup;
+	public int calculForceFrappe() {
+		return force;
+	}
+	
+	public void recevoirCoup(int forceFrappe) {
+		force = force - forceFrappe;
 		if (force > 0) 
 			parler("Aïe");
 		else 
