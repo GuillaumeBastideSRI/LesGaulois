@@ -6,7 +6,7 @@ public class Soldat extends Romain {
 	
 	@Override
 	protected String donnerAuteur() {
-		return grade.getNom();
+		return getGrade().getNom();
 	}
 	
 	@Override
@@ -39,7 +39,7 @@ public class Soldat extends Romain {
 	
 	public Soldat(String nom, Grade grade, int force) {
 		super(nom, force);
-		this.grade = grade;
+		this.setGrade(grade);
 	}
 	
 	public void equiperArmure(Armure equipement) {
@@ -57,6 +57,14 @@ public class Soldat extends Romain {
 	            return;
 	        }
 	    }
+	}
+
+	public Grade getGrade() {
+		return grade;
+	}
+
+	public void setGrade(Grade grade) {
+		this.grade = grade;
 	}
 
 }
